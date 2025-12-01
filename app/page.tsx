@@ -299,7 +299,7 @@ export default function Home() {
             className="w-80 bg-neutral-900 border border-neutral-700 p-4 rounded-xl shadow-2xl text-xs z-[100] pointer-events-none"
           >
             <span className="block font-bold text-green-400 mb-1 text-base">
-              Click to change to: "{tooltip.content.replacement}"
+              Click to change to: &quot;{tooltip.content.replacement}&quot;
             </span>
             <span className="block text-neutral-300 mb-2">
               {tooltip.content.explanation}
@@ -484,14 +484,14 @@ export default function Home() {
                                 {item.example_fix && (
                                   <div className="bg-black/20 p-3 rounded-lg text-xs space-y-1 border border-white/5">
                                      <div className="uppercase tracking-wider opacity-50 font-bold text-[10px]">Example Fix:</div>
-                                     <div className="italic opacity-90">"{item.example_fix}"</div>
+                                     <div className="italic opacity-90">&quot;{item.example_fix}&quot;</div>
                                   </div>
                                 )}
 
                                 {item.apply_to_text && item.replacement_text && (
                                    <button 
                                       onClick={(e) => applyFix(item.apply_to_text!, item.replacement_text!, e)}
-                                      disabled={isApplied}
+                                      disabled={!!isApplied}
                                       className={cn(
                                         "flex items-center gap-2 text-[10px] px-2 py-1 rounded transition-colors mt-2 w-fit",
                                         isApplied 
@@ -544,7 +544,7 @@ export default function Home() {
                                   applyFix(item.target_text!, item.replacement_text!, e);
                                }
                             }}
-                            disabled={!canApply || isApplied}
+                            disabled={!canApply || !!isApplied}
                             className={cn(
                               "border rounded-xl p-4 transition-all text-left group relative",
                               isApplied 
@@ -583,7 +583,7 @@ export default function Home() {
                              <div className="space-y-2 text-sm">
                                <p className="text-neutral-300">{item.definition}</p>
                                <div className="pl-2 border-l-2 border-neutral-700 italic text-neutral-400">
-                                 "{item.example_sentence}"
+                                 &quot;{item.example_sentence}&quot;
                                </div>
                                <div className="bg-neutral-800/50 p-2 rounded text-xs text-neutral-400 mt-2">
                                  <span className="text-amber-500/80 font-bold">Use instead of:</span> {item.context_in_essay}
@@ -662,7 +662,7 @@ export default function Home() {
                           {tip.example_implementation && (
                             <div className="bg-black/30 rounded p-3 text-xs space-y-1 border border-white/5">
                               <span className="text-[10px] uppercase tracking-wider font-bold text-blue-400/70">Example:</span>
-                              <div className="text-neutral-300 italic">"{tip.example_implementation}"</div>
+                              <div className="text-neutral-300 italic">&quot;{tip.example_implementation}&quot;</div>
                             </div>
                           )}
 
